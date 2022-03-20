@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clonaciones</title>
+
+	<style type="text/css">
+		.galery__item{
+			width: 300px;
+			border: solid;
+			padding: 5px;
+			box-sizing: border-box;
+			text-align: 
+		}
+	</style>
+</head>
+<body>
+	<button id="more">+</button>
+
+	<div class="galery" id="contenedor">
+
+		
+
+	</div>
+
+	<template id="plantilla">
+		<div class="galery__item">
+			
+			<figure>
+				<p>Avengers</p>
+				<img src="images/galery.jpg" width="180px" />
+			</figure>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		
+		</div>
+	</template>
+
+	<script type="text/javascript" src="library.js"></script>
+	<script type="text/javascript">
+		
+		let fragment=document.createDocumentFragment()
+		const template=obj("plantilla")
+
+		listener("more","click",()=>{
+
+			const clon=template.content.cloneNode(true)
+			clon.querySelector("img").src="images/img2.jpg"
+			clon.querySelectorAll("p")[0].textContent="La era de Ultron"
+			clon.querySelectorAll("p")[1].textContent="Los vengadores contra Ultron"
+
+			
+
+
+		})
+
+	</script>
+
+</body>
+</html>

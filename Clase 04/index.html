@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		.cabecera{
+			color: green;
+			margin: 0;
+			padding: 0;
+			text-shadow: 0 0 3px green;
+		}
+
+		div{
+			border: solid;
+
+		}
+
+	</style>
+</head>
+<body>
+
+	<a id="linkX" href="#">Ir a Video</a>
+	
+	<div id="content" class="contenedor">
+		<!-- https://www.youtube.com/watch?v=Biuaeo0RXTM&list=RDBiuaeo0RXTM&start_radio=1 -->
+		<h1 id="cab" class="cab">Curso de <span>Javascript</span></h1>
+		<hr />
+		<hr />
+		<p class="texto">Lorem ipsum dolor sit amet, <strong>consectetur adipisicing</strong> elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	</div>
+
+	
+	<a id="linkY" href="#">Ir a Video</a>
+	<script type="text/javascript">
+		
+		const h1=document.getElementById("cab");
+		const l1=document.getElementById("linkX");
+		const l2=document.getElementById("linkY");
+
+		l1.addEventListener("click",(a)=>{
+			a.preventDefault();//form
+
+			console.log("Click por tocarlo");
+			console.log(a);
+
+		})
+
+		l2.addEventListener("click",(zzz)=>{
+			
+			zzz.preventDefault();//form
+			console.log("Click por tocarlo");
+			console.log(zzz);
+
+		})
+
+		const listenerCard={
+			"texto":()=>alert("Click en texto"),
+			"cab":()=>alert("Click en Cabecera"),
+			"contenedor":()=>alert("Click en Contenedor Principal"),
+		}
+
+		content.addEventListener("click",(e)=>{
+
+			const element=e.target.getAttribute("class")
+			
+			if(element!=null){
+				listenerCard[element]();
+				return
+			}
+
+			alert("Clic en Cabecera")
+			
+		})
+
+	</script>
+</body>
+</html>

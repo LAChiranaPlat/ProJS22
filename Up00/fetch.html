@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+	<img src="" />
+
+	<script type="text/javascript">
+		/*
+		fetch("cadena.txt")//Reemplazo de Ajax
+			.then(dataCadena => console.log(dataCadena))
+		*/
+		//Promesa
+/*
+		function stateStudent(promedio){
+
+			return new Promise( (fnOk, reject)=>{
+
+				if(promedio<0 || promedio>20)
+					throw "Valor no permitido"
+
+				if(promedio>=11)
+					fnOk("Aprobado")
+
+				if(promedio<=10)
+					reject("Desaprobado")
+
+			} )
+
+		}
+
+		stateStudent(20)
+			.then(x=>{
+				alert(x)
+			})
+			.catch(errorMessage=>console.log("Mensaje de reject(): "+errorMessage))
+
+let miPrimeraPromise = new Promise((resolve, reject) => {
+  
+  setTimeout(function(){
+    resolve("¡Éxito!"); // ¡Todo salió bien!
+  }, 250);//milisegundos
+
+});
+
+miPrimeraPromise.then((successMessage) => {
+  
+  console.log("¡Sí! " + successMessage);
+});
+
+*/
+/*
+const heroes=[
+	{id:0,name:"Capitan America"},
+	{id:1,name:"Ironman"},
+	{id:2,name:"Hulk"},
+	{id:3,name:"Thor"},
+]
+
+function getHero(idH)
+{
+	let flag=false;
+	return new Promise( (res,rej)=>{
+	
+		heroes.forEach(e=>{
+			
+			if(e.id===idH){
+				res("Encontramos al Vengador: "+e.name);
+				flag=true;
+				return;
+			}
+		})
+
+		if(flag==false)
+		{
+			rej("No se encontro a ningun super Heroe")
+		}
+
+	} )
+}
+
+getHero(1)
+	.then(e=>console.log(e))
+	.catch(me=>console.error(me))
+*/
+
+/*
+var miImagen = document.querySelector('img');
+
+var miSolicitud = new Request('files/DATA.jpg');
+
+fetch(miSolicitud)
+	.then(r=>{
+  		return r.blob();//genera una promesa
+	})
+	.then(res=> {
+  		var objeto = URL.createObjectURL(res);
+  		miImagen.src = objeto;
+	})
+*/
+/*
+fetch("https://jsonplaceholder.typicode.com/posts")
+	
+	.then(obj=>{
+	
+		return obj.json();
+	
+	})
+	.then(objJson=>{
+	
+		objJson.forEach(e=>{
+			console.log("Titulo: "+e.title)
+		})	
+	
+	})
+*/
+/*	ASYNC - AWAIT 	*/
+
+async function peticion(){
+
+	
+	let promise= await fetch("https://jsonplaceholder.typicode.com/posts")
+	let obj= await promise.json()
+
+	obj.forEach(e=>{
+		console.log("Titulo Asincrono: "+e.title)
+	})	
+}
+
+peticion()
+
+
+	</script>
+</body>
+</html>

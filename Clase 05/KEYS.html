@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Listener al Teclado</title>
+</head>
+<body>
+
+	<input type="search" id="search" />
+
+	<div class="result">
+		Resultados de su busqueda:<span id="result"></span>
+	</div>
+
+	<script type="text/javascript" src="library.js"></script>
+	<script type="text/javascript">
+		
+		const box=obj("search")
+
+		box.addEventListener("keyup",(e)=>{
+
+			if(e.keyCode==13)
+				obj("result").innerText=box.value
+			
+		})
+
+	</script>
+
+</body>
+</html>

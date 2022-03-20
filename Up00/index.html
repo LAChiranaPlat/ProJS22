@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Galeria de Fotos</title>
+	<style type="text/css">
+		.contenedor{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 80%;
+			height: 650px;
+			border: solid;
+		}
+
+		.contenedor__images{
+			display: flex;
+			flex-flow: wrap;
+			justify-content: space-around;
+			width: 98%;
+			margin: auto;
+			height: 600px;
+			border: solid;
+			overflow: auto;
+		}
+
+		button{
+			margin: 10px auto 0 auto;
+			display: block;
+		}
+
+		input{
+			opacity: 0;
+			pointer-events: none;
+			position: absolute;
+		}
+
+		.fig{
+			width: 200px;
+			height: auto;
+			margin: 5px;
+		}
+
+		.fig figure{
+			margin: 0;
+			padding: 0;
+		}
+
+		.fig img{
+			width: 100%;
+		}
+
+
+
+	</style>
+</head>
+<body>
+
+	<input type="file" name="" id="browse" />
+	
+	<div class="contenedor">
+		<label for="browse">
+			<div class="contenedor__images" id="contenedor">
+				
+
+			</div>
+		</label>
+		<button id="uploading">Publicar</button>
+	</div>
+
+	<template>
+		<div class="fig">
+			<figure>
+				<img src="" />
+			</figure>
+			<label></label>
+			<a href="#" class="dropImage">X</a>
+		</div>
+	</template>
+
+<script type="text/javascript">
+
+	const uploading=document.getElementById("uploading");
+	
+	const input=document.getElementById("browse");
+	const contenedor=document.getElementById("contenedor");
+	const contentImage=document.querySelector(".contenedor__images");
+
+	const fragment=document.createDocumentFragment();
+	const template=document.querySelector("template").content;
+
+	const imagenes=[];
+	let bPosition=0;
+
+
+	contenedor.addEventListener("dragover",(e)=>{
+		e.preventDefault();
+		e.stopPropagation();
+
+		e.dataTransfer.dropEffect="copy";
+
+	})
+
+	contenedor.addEventListener("drop",(e)=>{
+		e.preventDefault();
+		e.stopPropagation();
+
+		for(let image of e.dataTransfer.files)
+		{
+			
+			let preview=new FileReader();
+
+			preview.addEventListener("progress",(e)=>{
+				
+			});
+			
+			preview.addEventListener("load",(e)=>{
+
+				imagenes.push(image);
+
+				const clon=template.cloneNode(true);
+				clon.querySelector("img").src=preview.result;
+				clon.querySelector("img").setAttribute("class",bPosition)
+				clon.querySelector("label").textContent="Img: "+image.name;
+
+				fragment.appendChild(clon);
+				contentImage.appendChild(fragment);
+				
+				console.log(imagenes)
+				bPosition++;
+			});
+
+			preview.readAsDataURL(image);
+
+
+		}
+
+	})
+
+	contentImage.addEventListener("click",(e)=>{
+		e.preventDefault();
+		e.stopPropagation();
+
+		if(e.target.classList.contains("dropImage")){
+
+			const img=e.target.parentNode.querySelector("img")
+			let position=img.getAttribute("class")
+			e.target.parentNode.remove()
+			imagenes.splice(position,1,"")
+			console.log(imagenes)
+
+		}
+
+	})
+
+	uploading.addEventListener("click",(e)=>{
+		e.preventDefault();
+		e.stopPropagation();
+
+		const frmFotos=new FormData();
+
+		imagenes.forEach((e)=>{
+
+			if(e!="")
+				frmFotos.append("images[]",e);
+
+		})
+
+		const Ajax=new XMLHttpRequest;
+		
+		Ajax.addEventListener("progress",(e)=>{
+			console.log(e)
+		})
+
+		Ajax.addEventListener("load",(e)=>{
+			console.log("Subido")
+		})
+
+		Ajax.open("post","upFile.php");
+		Ajax.send(frmFotos);		
+
+	})
+
+</script>
+</body>
+</html>

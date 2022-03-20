@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pestañas</title>
+	<style type="text/css">
+		
+		/* BEM = BLOQUES, ELEMENTOS, MODIFICADORES	*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			padding: 10px;
+		}
+
+		.tag{
+			list-style: none;
+			height: 40px;
+			width: 600px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			margin-top: 10px;
+		}
+
+		a{
+			text-decoration: none;
+			color: #333;
+		}
+
+		.paneles{
+			width: 95%;
+			max-width: 600px;
+			height: 300px;
+			border: solid 1px silver;
+			border-radius:3px;
+			position: relative;
+		}
+
+		.paneles__tab{
+			width: 100%;
+			height: 300px;
+			padding: 10px;
+			overflow: auto;
+			position: absolute;
+			background: white;
+			pointer-events: auto;
+		}
+
+		.paneles__post{
+			margin-bottom: 5px;
+		}
+
+		.tabOff{
+			pointer-events: none;
+			opacity: 0;
+		}
+
+		.tabActive{
+			background: silver;
+		}
+
+	</style>
+</head>
+<body>
+	<h1 id="h1">LAChirana Plat</h1>
+	<hr />
+
+	<ul class="tag">
+		<li><a id="profile" href="">Perfil</a></li>
+		<li><a id="followers" href="">Seguidores</a></li>
+		<li><a id="chat" href="">chat</a></li>
+		<li><a id="post" href="">Publicaciones</a></li>
+		<li><a id="security" href="">Seguridad</a></li>
+		<li><a id="xxx" href="">Denuncias</a></li>
+	</ul>
+
+	<section class="paneles">
+		<div class="paneles__tab">
+			<table>
+				<tr>
+					<td>Usuario</td>
+					<td>Alexander Huarcya</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="paneles__tab tabOff">
+			<div class="paneles__post">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<div class="paneles__post">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<div class="paneles__post">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<div class="paneles__post">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<div class="paneles__post">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<div class="paneles__post">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<div class="paneles__post">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+			<div class="paneles__post">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div>
+
+		<div class="paneles__tab tabOff">
+			<h1>Chate conmigo</h1>
+		</div>
+
+		<div class="paneles__tab tabOff"></div>
+		<div class="paneles__tab tabOff">
+			<table>
+				<tr>
+					<td>Correo</td>
+					<td>huarseral@hotmail.com</td>
+				</tr>
+				<tr>
+					<td>Contraseña</td>
+					<td>*****</td>
+				</tr>
+			</table>
+		</div>
+		<div class="paneles__tab tabOff"></div>
+	</section>
+
+<script type="text/javascript" src="library.js"></script>
+<script type="text/javascript">
+
+	const paneles=obj(".paneles__tab");
+	const tags=obj(".tag a");
+
+	console.log(paneles)
+
+	const h1=listener("h1","click",()=>{
+			alert("Bienvenidos futuros Frontend")
+	})
+
+
+	const p=listener("profile","click",()=>{
+		
+		clearTagPanel()		
+		p.classList.add("tabActive")
+		paneles[0].classList.remove("tabOff")
+
+	})
+
+	const post=listener("post","click",()=>{
+
+		clearTagPanel()
+		post.classList.add("tabActive")
+		paneles[1].classList.remove("tabOff")
+
+	})
+
+	const s=listener("security","click",()=>{
+
+		clearTagPanel()
+		s.classList.add("tabActive")
+		paneles[4].classList.remove("tabOff")
+
+	})
+
+	const chat=listener("chat","click",()=>{
+
+		clearTagPanel()
+		chat.classList.add("tabActive")
+		paneles[2].classList.remove("tabOff")
+
+	})
+
+
+function clearTagPanel(){
+
+	tags.forEach((item)=>{
+		item.classList.remove("tabActive")
+	})
+	paneles.forEach((item)=>{
+		item.classList.add("tabOff")
+	})
+
+}
+	
+</script>
+</body>
+</html>

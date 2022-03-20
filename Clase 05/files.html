@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Files</title>
+
+	<style type="text/css">
+		.recibidor{
+			border: solid;
+			width: 700px;
+			height: 400px;
+		}
+
+		input[type="file"]{
+			opacity: 0;
+			position: absolute;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<fieldset>
+		<legend>Foto de Perfil</legend>
+		
+		<input type="file" id="foto" multiple="true" />
+		
+
+		<label for="foto"><strong>Click para Subir Imagen</strong></label>
+
+	</fieldset>
+
+	<div class="recibidor" id="recibidor"></div>
+
+	<div id="lista">
+		
+	</div>
+
+		<template id="plantilla">
+			<div>
+				<img src="" width="100px" />
+				<p></p>
+			</div>
+		</template>
+
+
+	<script type="text/javascript" src="library.js"></script>
+	<script type="text/javascript">
+
+		let fragment=document.createDocumentFragment()
+		const template=obj("plantilla")
+
+		obj("foto").addEventListener("change",(e)=>{
+			 
+			 for(file of e.target.files)
+			 {
+			 	
+
+
+				let visor=new FileReader();
+
+				visor.addEventListener("progress",(e)=>{
+					console.log(e)
+				})
+
+				visor.addEventListener("load",()=>{
+					
+					const clon=template.content.cloneNode(true)
+					clon.querySelector("p").textContent=file.name
+					clon.querySelector("img").src=visor.result
+					
+					fragment.appendChild(clon)
+					obj("lista").appendChild(fragment)
+					
+
+				})
+
+				visor.readAsDataURL(file)
+
+			 }
+
+			
+		})
+
+
+	obj("recibidor").addEventListener("dragover",(event)=>{
+
+		event.preventDefault()
+		event.stopPropagation()
+		event.dataTransfer.dropEffect="copy"
+
+	})
+
+	obj("recibidor").addEventListener("drop",(event)=>{
+
+		event.preventDefault()
+		event.stopPropagation()
+		
+		for(file of event.dataTransfer.files)
+			 {
+			 	const clon=template.content.cloneNode(true)
+				clon.querySelector("p").textContent=file.name
+				fragment.appendChild(clon)
+			 }
+
+			obj("lista").appendChild(fragment)
+
+	})
+
+
+	</script>
+
+</body>
+</html>
